@@ -44,51 +44,79 @@
 <script>
     let textInput = document.querySelector('#student-name')
     let idInput = document.querySelector('#student-id')
-    let GpaInput= document.querySelector('#student_gpa')
+    let GpaInput= document.querySelector('#student-gpa')
     let addButton = document.querySelector('#add-student') 
     let textList =document.querySelector("#student-list")
-    let clearButton = document.querySelector("#remove-selected-student")
+    let clearButton = document.querySelector("#remove-selected-students")
 
-
+//    an event listener so that when button#add-students is clicked:
     addButton.addEventListener('click', function(){
         let newText  = textInput.value
-      
-        let newListItem = document.createElement('li')
-           
-        newListItem.innerHTML = newText
+        let studentid = idInput.value
+        let GPA = GpaInput.value
+    //    all the 3 input that reads the value 
+       
+        if(newText.length <2){
+            alert('please enter full name')
+            return
+        }
+       
+        if(studentid.length <2){
+                alert('please enter student id')
+                return
 
-        textList.appendChild(newListItem)
+        }
 
-        // student id 
-        // let studentid = idInput.value
-        // let studentListItem = document.createElement('li')
-
-        // newstudentItem.innerHTML = studentid
-
-        // textList.appendChild(newListItem)
-
-    })
-
-    textInput.addEventListener('click', function(){
-            alert("Enter student name")
+        // If the GPA is not entered, or is not in the range 0-4
+        if(GPA.length <1 || GPA > 4 || GPA < 0){
+            alert("Please enter GPA between 0 to 4 ")
             return
 
+        } 
+        
+        let newListItem = document.createElement('li')
+           
+        newListItem.innerHTML = `${newText}, ${studentid}, ${GPA}`
+        console.log(newListItem)
+        textList.appendChild(newListItem) // add the list 
+        
+        //   - When the li element is clicked, add the class="selected" to that li element
+        newListItem.addEventListener('click', function(){
+            newListItem.classList.toggle ('selected')
+
+        })
+       
+
+        textInput.value = ''
+        idInput.value = ''
+        GpaInput.value = ''
+
+
+
+    }) 
+
+    //  Add an event listener so that when button#remove-selected-students is clicked
+    clearButton.addEventListener('click', function(){
+      let  selectedStudent= document.querySelectorAll('.selected')
+
+        // - Remove all of the elements with the class="selected" from the list
+      selectedStudent.forEach(function (deletestudent){
+
+        deletestudent.remove()
+          
+      })
+
+
+
     })
 
+    
+    
+    
+    
+   
 
-    idInput.addEventListener('click', function(){
-       alert('Enter  student id')
-       let studentid = idInput.value
-        let studentListItem = document.createElement('li')
-
-        // newstudentItem.innerHTML = studentid
-
-        // textList.appendChild(newListItem)
-        elementInList++
-
-
-     })
-
+    
     //     GpaInput.addEventListener('click', function(){
         
     //     alert('The GPA has to be least than 4 ')
@@ -99,47 +127,6 @@
      
     //  })
 
-    //  if(credit >=4){
-    //       statusMessage.innerHTML = ("You have to enter less than 4")
-
-    // / /let newText= idInput.value
-        // let newText = GpaInput.value
-        // let gpa = 4
-        // textInput.value = ''
-       
-
-    //     elementInList++
-
-    //     clearButton.addEventListener('click', function(){
-    //         textList.innerHTML = ''
-    //         elementsInList = 0
-    // })
-
-        // let newListItem = document.createElement("li")
-        // newListItem.innerHTML = newText
-
-
-
-        // studentList.appendChild(newListItem)
-
-        // 
-        // }
-
-
-
-    
-
-    
-    
-
-    
-    // 
-
-
-    // document.addEventListener('keyup', function(){ 
-    //     if (event.keyCode == 13 ){
-    //         addButton.click()
-        
     
 
 
