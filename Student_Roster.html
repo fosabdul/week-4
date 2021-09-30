@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Club Membership</title>
+
+  
+      
+
+  <link rel="stylesheet" type="text/css" href="Student_Roster.css">
+
+</head>
+<body>
+
+    <h1>Student Club Roster</h1>
+
+    <h2>Add Students</h2>
+
+    <label for="student-name">Student Name</label><input id="student-name" name="student-name">
+    <br>
+    <label for="student-id">Student ID</label><input id="student-id" name="student-id">
+    <br>
+    <label for="student-gpa">Student GPA</label><input id="student-gpa" name="student-gpa" type="number">
+    <br>
+    <button id="add-student">Add Student</button>    
+
+    <h2>Student List</h2>
+
+    
+
+    <p>There are 
+        <span id="student-count">
+          <!-- use JavaScript to count the number of students, and show here -->
+        </span> 
+    
+
+    <ul id="student-list">
+        <!-- use JavaScript to create li elements  -->
+    </ul>
+
+    
+
+    <button id="remove-selected-students">Remove selected students</button>
+
+<script>
+    let textInput = document.querySelector('#student-name')
+    let idInput = document.querySelector('#student-id')
+    let GpaInput= document.querySelector('#student_gpa')
+    let addButton = document.querySelector('#add-student') 
+    let textList =document.querySelector("#student-list")
+    let clearButton = document.querySelector("#remove-selected-student")
+
+
+    addButton.addEventListener('click', function(){
+        let newText  = textInput.value
+      
+        let newListItem = document.createElement('li')
+           
+        newListItem.innerHTML = newText
+
+        textList.appendChild(newListItem)
+
+        // student id 
+        // let studentid = idInput.value
+        // let studentListItem = document.createElement('li')
+
+        // newstudentItem.innerHTML = studentid
+
+        // textList.appendChild(newListItem)
+
+    })
+
+    textInput.addEventListener('click', function(){
+            alert("Enter student name")
+            return
+
+    })
+
+
+    idInput.addEventListener('click', function(){
+       alert('Enter  student id')
+       let studentid = idInput.value
+        let studentListItem = document.createElement('li')
+
+        // newstudentItem.innerHTML = studentid
+
+        // textList.appendChild(newListItem)
+        elementInList++
+
+
+     })
+
+    //     GpaInput.addEventListener('click', function(){
+        
+    //     alert('The GPA has to be least than 4 ')
+    //     return
+    //     let student_gpa = 4
+    //     let credit = GpaInput.value
+        
+     
+    //  })
+
+    //  if(credit >=4){
+    //       statusMessage.innerHTML = ("You have to enter less than 4")
+
+    // / /let newText= idInput.value
+        // let newText = GpaInput.value
+        // let gpa = 4
+        // textInput.value = ''
+       
+
+    //     elementInList++
+
+    //     clearButton.addEventListener('click', function(){
+    //         textList.innerHTML = ''
+    //         elementsInList = 0
+    // })
+
+        // let newListItem = document.createElement("li")
+        // newListItem.innerHTML = newText
+
+
+
+        // studentList.appendChild(newListItem)
+
+        // 
+        // }
+
+
+
+    
+
+    
+    
+
+    
+    // 
+
+
+    // document.addEventListener('keyup', function(){ 
+    //     if (event.keyCode == 13 ){
+    //         addButton.click()
+        
+    
+
+
+</script>
+
+</body>
+
+</html>

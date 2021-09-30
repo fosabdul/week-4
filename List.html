@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <title>List</title>
+</head>
+<body>  
+    <!--write your HTML content here -->
+    <p> Enter some text to add to the list</p>
+    <input id ="new-text"></input>
+    <button id="add-text">Add</button>
+
+    <!--Enpty unordered list-->
+    <ul id="list-of-text"> </ul>
+    <button id="clear">Clear</button>
+    
+
+    <script>// the vidoe show same code but it doesn't run. 
+
+    let textInput = document.querySelector('#new-text')
+    let addButton = document.querySelector('#add-text') 
+    let textList =document.querySelector("#list-of-text")
+    let clearButton = document.querySelector("#clear")
+
+    let elementInList = 0
+    let maxElements = 10 
+
+    document.addEventListener('keyup', function(){ 
+        if (event.keyCode == 13 ){
+            addButton.click()
+        }
+    })
+
+    addButton.addEventListener('click', function(){
+
+        let newText = textInput.value
+
+        if (newText.length == 0){
+            alert('Enter some text')
+            return
+        }
+        if (newText.length >=50){
+            alert('text too long - no  more than 50 characters') // if it has long text. this msg will pop 
+            return
+        }
+
+
+        if (elementInList >=maxElements){
+            alert("no more elements can be added")
+
+            return
+        }
+
+        // function limit(element){
+        //     var max_chars = 5;
+        //     if(element.value.length > max_chars){
+        //         element.value = element.value.substr(0,max_chars);
+                
+        //     }
+        // }
+
+
+       let newListItem = document.createElement('li')
+            // read the text in the input 
+            //create a 
+        newListItem.innerHTML = newText
+
+        textList.appendChild(newListItem)
+
+        textInput.value
+
+        elementInList++
+
+
+    
+    })
+    clearButton.addEventListener("click", function(){
+        textList.innerHTML = ''
+        elementInList = 0
+    })
+ </script>
+</body>
+
+
+</html>

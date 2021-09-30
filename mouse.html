@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <title>Document</title>
+</head>
+<body>  
+    <!--write your HTML content here -->
+    <p id ="mouse-me"></p>
+
+    <script>// the vidoe show same code but it doesn't run. 
+
+    let message = document.querySelector('mouse-me')
+    let countMouse = 0 
+
+    message.addEventListener('mouseover', function(){
+            // increase mouse count by 1 
+        mouseCount = mouseCount +1
+    if (mouseCount ==1){
+    message.innerHTML = 'Mouse has been here ' + mouseCount + ' time'
+     }else{
+    message.innerHTML = 'Mouse has been here ' + mouseCount + 'times'
+            }
+        })
+
+    message.addEventListener('mouseout' , function(){
+        message.innerHTML = 'Your mouse is Not on the message'
+    })
+    </script>
+</body>
+</html>
